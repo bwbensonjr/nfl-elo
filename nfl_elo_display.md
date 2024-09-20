@@ -8,331 +8,279 @@ toc-title: Table of contents
 ## NFL Elo
 
 :::: {.cell execution_count="1"}
-::: {.cell-output .cell-output-display execution_count="1"}
-<div id="kzmqzyuwft" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>
-#kzmqzyuwft table {
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-        }
-
-#kzmqzyuwft thead, tbody, tfoot, tr, td, th { border-style: none; }
- tr { background-color: transparent; }
-#kzmqzyuwft p { margin: 0; padding: 0; }
- #kzmqzyuwft .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #kzmqzyuwft .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #kzmqzyuwft .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #kzmqzyuwft .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #kzmqzyuwft .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #kzmqzyuwft .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #kzmqzyuwft .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #kzmqzyuwft .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #kzmqzyuwft .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #kzmqzyuwft .gt_column_spanner_outer:first-child { padding-left: 0; }
- #kzmqzyuwft .gt_column_spanner_outer:last-child { padding-right: 0; }
- #kzmqzyuwft .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #kzmqzyuwft .gt_spanner_row { border-bottom-style: hidden; }
- #kzmqzyuwft .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #kzmqzyuwft .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #kzmqzyuwft .gt_from_md> :first-child { margin-top: 0; }
- #kzmqzyuwft .gt_from_md> :last-child { margin-bottom: 0; }
- #kzmqzyuwft .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #kzmqzyuwft .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #kzmqzyuwft .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #kzmqzyuwft .gt_row_group_first td { border-top-width: 2px; }
- #kzmqzyuwft .gt_row_group_first th { border-top-width: 2px; }
- #kzmqzyuwft .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #kzmqzyuwft .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #kzmqzyuwft .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #kzmqzyuwft .gt_left { text-align: left; }
- #kzmqzyuwft .gt_center { text-align: center; }
- #kzmqzyuwft .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #kzmqzyuwft .gt_font_normal { font-weight: normal; }
- #kzmqzyuwft .gt_font_bold { font-weight: bold; }
- #kzmqzyuwft .gt_font_italic { font-style: italic; }
- #kzmqzyuwft .gt_super { font-size: 65%; }
- #kzmqzyuwft .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #kzmqzyuwft .gt_asterisk { font-size: 100%; vertical-align: 0; }
- 
-</style>
-
-  week   away_team   away_elo   away_win_prob   away_score   home_team   home_elo   home_win_prob   home_score   point_spread   actual_spread
-  ------ ----------- ---------- --------------- ------------ ----------- ---------- --------------- ------------ -------------- ---------------
-  1      BAL         1,638      41%             20           KC          1,649      59%             27           −2             −7
-  1      GB          1,562      48%             29           PHI         1,528      52%             34           −1             −5
-  1      PIT         1,534      57%             18           ATL         1,435      43%             10           2              8
-  1      ARI         1,410      18%             28           BUF         1,628      82%             34           −11            −6
-  1      TEN         1,436      39%             17           CHI         1,465      61%             24           −3             −7
-  1      NE          1,408      24%             16           CIN         1,559      76%             10           −8             6
-  1      HOU         1,498      47%             29           IND         1,467      53%             27           −1             2
-  1      JAX         1,489      35%             17           MIA         1,543      65%             20           −4             −3
-  1      CAR         1,349      22%             10           NO          1,521      78%             47           −9             −37
-  1      MIN         1,489      47%             28           NYG         1,458      53%             6            −1             22
-  1      LV          1,501      51%             10           LAC         1,444      49%             22           0              −12
-  1      DEN         1,470      38%             20           SEA         1,503      62%             26           −3             −6
-  1      DAL         1,583      54%             33           CLE         1,502      46%             17           1              16
-  1      WAS         1,385      25%             20           TB          1,527      75%             37           −8             −17
-  1      LA          1,523      36%             20           DET         1,574      64%             26           −4             −6
-  1      NYJ         1,452      19%             19           SF          1,651      81%             32           −10            −13
-  2      BUF         1,635      55%             31           MIA         1,552      45%             10           1              21
-  2      LV          1,475      24%             26           BAL         1,621      76%             23           −8             3
-  2      LAC         1,471      62%             26           CAR         1,333      38%             3            3              23
-  2      NO          1,537      33%             44           DAL         1,609      67%             19           −5             25
-  2      TB          1,542      36%             20           DET         1,588      64%             16           −4             4
-  2      IND         1,456      31%             10           GB          1,545      69%             16           −6             −6
-  2      CLE         1,476      42%             18           JAX         1,479      58%             13           −2             5
-  2      SF          1,661      62%             17           MIN         1,522      38%             23           4              −6
-  2      SEA         1,518      54%             23           NE          1,438      46%             20           1              3
-  2      NYJ         1,442      46%             24           TEN         1,420      54%             17           −1             7
-  2      NYG         1,425      51%             18           WAS         1,370      49%             21           0              −3
-  2      LA          1,509      58%             10           ARI         1,403      42%             41           2              −31
-  2      PIT         1,553      57%             13           DEN         1,456      43%             6            2              7
-  2      CIN         1,529      25%             25           KC          1,666      75%             26           −7             −1
-  2      CHI         1,481      39%             13           HOU         1,509      61%             19           −3             −6
-  2      ATL         1,416      26%             22           PHI         1,545      74%             21           −7             1
-  3      NE          1,425      37%             3            NYJ         1,464      63%             24           −4             −21
-  3      NYG         1,411      31%             None         CLE         1,497      69%             None         −5             None
-  3      CHI         1,466      46%             None         IND         1,444      54%             None         −1             None
-  3      HOU         1,524      40%             None         MIN         1,547      60%             None         −3             None
-  3      PHI         1,535      37%             None         NO          1,580      63%             None         −4             None
-  3      LAC         1,494      33%             None         PIT         1,571      67%             None         −5             None
-  3      DEN         1,438      27%             None         TB          1,562      73%             None         −7             None
-  3      GB          1,557      65%             None         TEN         1,397      35%             None         4              None
-  3      CAR         1,309      20%             None         LV          1,496      80%             None         −9             None
-  3      MIA         1,524      42%             None         SEA         1,531      58%             None         −2             None
-  3      DET         1,568      61%             None         ARI         1,444      39%             None         3              None
-  3      BAL         1,600      48%             None         DAL         1,565      52%             None         −1             None
-  3      SF          1,637      66%             None         LA          1,469      34%             None         5              None
-  3      KC          1,670      75%             None         ATL         1,426      25%             None         8              None
-  3      JAX         1,458      19%             None         BUF         1,663      81%             None         −10            None
-  3      WAS         1,384      25%             None         CIN         1,526      75%             None         −8             None
-  4      DAL         1,565      65%             None         NYG         1,411      35%             None         4              None
-  4      NO          1,580      65%             None         ATL         1,426      35%             None         4              None
-  4      CIN         1,526      72%             None         CAR         1,309      28%             None         7              None
-  4      LA          1,469      43%             None         CHI         1,466      57%             None         −2             None
-  4      MIN         1,547      41%             None         GB          1,557      59%             None         −2             None
-  4      JAX         1,458      34%             None         HOU         1,524      66%             None         −5             None
-  4      PIT         1,571      61%             None         IND         1,444      39%             None         3              None
-  4      DEN         1,438      36%             None         NYJ         1,487      64%             None         −4             None
-  4      PHI         1,535      39%             None         TB          1,562      61%             None         −3             None
-  4      WAS         1,384      35%             None         ARI         1,444      65%             None         −4             None
-  4      NE          1,402      16%             None         SF          1,637      84%             None         −11            None
-  4      KC          1,670      67%             None         LAC         1,494      33%             None         5              None
-  4      CLE         1,497      43%             None         LV          1,496      57%             None         −2             None
-  4      BUF         1,663      52%             None         BAL         1,600      48%             None         1              None
-  4      TEN         1,397      26%             None         MIA         1,524      74%             None         −7             None
-  4      SEA         1,531      38%             None         DET         1,568      62%             None         −3             None
-  5      TB          1,562      62%             None         ATL         1,426      38%             None         3              None
-  5      NYJ         1,487      35%             None         MIN         1,547      65%             None         −4             None
-  5      CAR         1,309      23%             None         CHI         1,466      77%             None         −8             None
-  5      BAL         1,600      53%             None         CIN         1,526      47%             None         1              None
-  5      BUF         1,663      63%             None         HOU         1,524      37%             None         4              None
-  5      IND         1,444      41%             None         JAX         1,458      59%             None         −3             None
-  5      MIA         1,524      60%             None         NE          1,402      40%             None         3              None
-  5      CLE         1,497      59%             None         WAS         1,384      41%             None         2              None
-  5      LV          1,496      51%             None         DEN         1,438      49%             None         0              None
-  5      ARI         1,444      20%             None         SF          1,637      80%             None         −10            None
-  5      GB          1,557      56%             None         LA          1,469      44%             None         2              None
-  5      NYG         1,411      27%             None         SEA         1,531      73%             None         −7             None
-  5      DAL         1,565      42%             None         PIT         1,571      58%             None         −2             None
-  5      NO          1,580      31%             None         KC          1,670      69%             None         −6             None
-  6      SF          1,637      58%             None         SEA         1,531      42%             None         2              None
-  6      JAX         1,458      42%             None         CHI         1,466      58%             None         −2             None
-  6      WAS         1,384      18%             None         BAL         1,600      82%             None         −11            None
-  6      ARI         1,444      28%             None         GB          1,557      72%             None         −7             None
-  6      HOU         1,524      60%             None         NE          1,402      40%             None         3              None
-  6      TB          1,562      40%             None         NO          1,580      60%             None         −3             None
-  6      CLE         1,497      38%             None         PHI         1,535      62%             None         −4             None
-  6      IND         1,444      50%             None         TEN         1,397      50%             None         −0             None
-  6      LAC         1,494      51%             None         DEN         1,438      49%             None         0              None
-  6      PIT         1,571      54%             None         LV          1,496      46%             None         1              None
-  6      ATL         1,426      60%             None         CAR         1,309      40%             None         3              None
-  6      DET         1,568      43%             None         DAL         1,565      57%             None         −2             None
-  6      CIN         1,526      59%             None         NYG         1,411      41%             None         3              None
-  6      BUF         1,663      67%             None         NYJ         1,487      33%             None         5              None
-  7      DEN         1,438      25%             None         NO          1,580      75%             None         −8             None
-  7      NE          1,402      35%             None         JAX         1,458      65%             None         −4             None
-  7      SEA         1,531      58%             None         ATL         1,426      42%             None         2              None
-  7      TEN         1,397      14%             None         BUF         1,663      86%             None         −13            None
-  7      CIN         1,526      47%             None         CLE         1,497      53%             None         −1             None
-  7      HOU         1,524      38%             None         GB          1,557      62%             None         −3             None
-  7      MIA         1,524      54%             None         IND         1,444      46%             None         1              None
-  7      DET         1,568      46%             None         MIN         1,547      54%             None         −1             None
-  7      PHI         1,535      61%             None         NYG         1,411      39%             None         3              None
-  7      LV          1,496      47%             None         LA          1,469      53%             None         −1             None
-  7      CAR         1,309      33%             None         WAS         1,384      67%             None         −5             None
-  7      KC          1,670      48%             None         SF          1,637      52%             None         −1             None
-  7      NYJ         1,487      32%             None         PIT         1,571      68%             None         −5             None
-  7      BAL         1,600      48%             None         TB          1,562      52%             None         −0             None
-  7      LAC         1,494      50%             None         ARI         1,444      50%             None         0              None
-  8      MIN         1,547      54%             None         LA          1,469      46%             None         1              None
-  8      BAL         1,600      58%             None         CLE         1,497      42%             None         2              None
-  8      TEN         1,397      22%             None         DET         1,568      78%             None         −9             None
-  8      IND         1,444      32%             None         HOU         1,524      68%             None         −5             None
-  8      GB          1,557      57%             None         JAX         1,458      43%             None         2              None
-  8      ARI         1,444      32%             None         MIA         1,524      68%             None         −5             None
-  8      NYJ         1,487      55%             None         NE          1,402      45%             None         1              None
-  8      ATL         1,426      26%             None         TB          1,562      74%             None         −7             None
-  8      CHI         1,466      55%             None         WAS         1,384      45%             None         1              None
-  8      NO          1,580      55%             None         LAC         1,494      45%             None         1              None
-  8      BUF         1,663      62%             None         SEA         1,531      38%             None         3              None
-  8      PHI         1,535      44%             None         CIN         1,526      56%             None         −2             None
-  8      CAR         1,309      26%             None         DEN         1,438      74%             None         −7             None
-  8      KC          1,670      67%             None         LV          1,496      33%             None         5              None
-  8      DAL         1,565      33%             None         SF          1,637      67%             None         −5             None
-  8      NYG         1,411      23%             None         PIT         1,571      77%             None         −8             None
-  9      HOU         1,524      48%             None         NYJ         1,487      52%             None         −1             None
-  9      DAL         1,565      62%             None         ATL         1,426      38%             None         4              None
-  9      DEN         1,438      23%             None         BAL         1,600      77%             None         −8             None
-  9      MIA         1,524      25%             None         BUF         1,663      75%             None         −8             None
-  9      NO          1,580      78%             None         CAR         1,309      22%             None         9              None
-  9      LV          1,496      39%             None         CIN         1,526      61%             None         −3             None
-  9      LAC         1,494      43%             None         CLE         1,497      57%             None         −2             None
-  9      IND         1,444      29%             None         MIN         1,547      71%             None         −6             None
-  9      WAS         1,384      39%             None         NYG         1,411      61%             None         −3             None
-  9      NE          1,402      44%             None         TEN         1,397      56%             None         −2             None
-  9      CHI         1,466      46%             None         ARI         1,444      54%             None         −1             None
-  9      DET         1,568      44%             None         GB          1,557      56%             None         −2             None
-  9      LA          1,469      34%             None         SEA         1,531      66%             None         −4             None
-  9      JAX         1,458      33%             None         PHI         1,535      67%             None         −5             None
-  9      TB          1,562      29%             None         KC          1,670      71%             None         −6             None
-  10     CIN         1,526      33%             None         BAL         1,600      67%             None         −5             None
-  10     NYG         1,411      57%             None         CAR         1,309      43%             None         2              None
-  10     NE          1,402      34%             None         CHI         1,466      66%             None         −5             None
-  10     BUF         1,663      73%             None         IND         1,444      27%             None         7              None
-  10     MIN         1,547      56%             None         JAX         1,458      44%             None         2              None
-  10     DEN         1,438      16%             None         KC          1,670      84%             None         −11            None
-  10     ATL         1,426      24%             None         NO          1,580      76%             None         −8             None
-  10     SF          1,637      54%             None         TB          1,562      46%             None         1              None
-  10     PIT         1,571      69%             None         WAS         1,384      31%             None         5              None
-  10     TEN         1,397      30%             None         LAC         1,494      70%             None         −6             None
-  10     NYJ         1,487      49%             None         ARI         1,444      51%             None         −0             None
-  10     PHI         1,535      39%             None         DAL         1,565      61%             None         −3             None
-  10     DET         1,568      49%             None         HOU         1,524      51%             None         −0             None
-  10     MIA         1,524      51%             None         LA          1,469      49%             None         0              None
-  11     WAS         1,384      24%             None         PHI         1,535      76%             None         −8             None
-  11     GB          1,557      56%             None         CHI         1,466      44%             None         2              None
-  11     JAX         1,458      29%             None         DET         1,568      71%             None         −6             None
-  11     LV          1,496      39%             None         MIA         1,524      61%             None         −3             None
-  11     LA          1,469      52%             None         NE          1,402      48%             None         1              None
-  11     CLE         1,497      32%             None         NO          1,580      68%             None         −5             None
-  11     BAL         1,600      47%             None         PIT         1,571      53%             None         −1             None
-  11     MIN         1,547      64%             None         TEN         1,397      36%             None         4              None
-  11     ATL         1,426      41%             None         DEN         1,438      59%             None         −2             None
-  11     SEA         1,531      29%             None         SF          1,637      71%             None         −6             None
-  11     KC          1,670      44%             None         BUF         1,663      56%             None         −2             None
-  11     CIN         1,526      47%             None         LAC         1,494      53%             None         −1             None
-  11     IND         1,444      37%             None         NYJ         1,487      63%             None         −4             None
-  11     HOU         1,524      37%             None         DAL         1,565      63%             None         −4             None
-  12     PIT         1,571      53%             None         CLE         1,497      47%             None         1              None
-  12     KC          1,670      86%             None         CAR         1,309      14%             None         12             None
-  12     MIN         1,547      54%             None         CHI         1,466      46%             None         1              None
-  12     TEN         1,397      27%             None         HOU         1,524      73%             None         −7             None
-  12     DET         1,568      61%             None         IND         1,444      39%             None         3              None
-  12     NE          1,402      27%             None         MIA         1,524      73%             None         −7             None
-  12     TB          1,562      64%             None         NYG         1,411      36%             None         4              None
-  12     DAL         1,565      68%             None         WAS         1,384      32%             None         5              None
-  12     DEN         1,438      35%             None         LV          1,496      65%             None         −4             None
-  12     SF          1,637      54%             None         GB          1,557      46%             None         1              None
-  12     ARI         1,444      31%             None         SEA         1,531      69%             None         −5             None
-  12     PHI         1,535      52%             None         LA          1,469      48%             None         1              None
-  12     BAL         1,600      58%             None         LAC         1,494      42%             None         2              None
-  13     CHI         1,466      29%             None         DET         1,568      71%             None         −6             None
-  13     NYG         1,411      24%             None         DAL         1,565      76%             None         −8             None
-  13     MIA         1,524      38%             None         GB          1,557      62%             None         −3             None
-  13     LV          1,496      22%             None         KC          1,670      78%             None         −9             None
-  13     LAC         1,494      53%             None         ATL         1,426      47%             None         1              None
-  13     PIT         1,571      49%             None         CIN         1,526      51%             None         −0             None
-  13     HOU         1,524      52%             None         JAX         1,458      48%             None         1              None
-  13     ARI         1,444      29%             None         MIN         1,547      71%             None         −6             None
-  13     IND         1,444      49%             None         NE          1,402      51%             None         −0             None
-  13     SEA         1,531      49%             None         NYJ         1,487      51%             None         −0             None
-  13     TEN         1,397      45%             None         WAS         1,384      55%             None         −1             None
-  13     TB          1,562      76%             None         CAR         1,309      24%             None         8              None
-  13     LA          1,469      28%             None         NO          1,580      72%             None         −6             None
-  13     PHI         1,535      34%             None         BAL         1,600      66%             None         −5             None
-  13     SF          1,637      39%             None         BUF         1,663      61%             None         −3             None
-  13     CLE         1,497      51%             None         DEN         1,438      49%             None         0              None
-  14     GB          1,557      41%             None         DET         1,568      59%             None         −2             None
-  14     NYJ         1,487      38%             None         MIA         1,524      62%             None         −3             None
-  14     ATL         1,426      27%             None         MIN         1,547      73%             None         −7             None
-  14     NO          1,580      67%             None         NYG         1,411      33%             None         5              None
-  14     CAR         1,309      17%             None         PHI         1,535      83%             None         −11            None
-  14     CLE         1,497      33%             None         PIT         1,571      67%             None         −5             None
-  14     LV          1,496      34%             None         TB          1,562      66%             None         −5             None
-  14     JAX         1,458      52%             None         TEN         1,397      48%             None         0              None
-  14     SEA         1,531      55%             None         ARI         1,444      45%             None         1              None
-  14     BUF         1,663      70%             None         LA          1,469      30%             None         6              None
-  14     CHI         1,466      22%             None         SF          1,637      78%             None         −9             None
-  14     LAC         1,494      21%             None         KC          1,670      79%             None         −9             None
-  14     CIN         1,526      37%             None         DAL         1,565      63%             None         −4             None
-  15     LA          1,469      22%             None         SF          1,637      78%             None         −9             None
-  15     DAL         1,565      77%             None         CAR         1,309      23%             None         8              None
-  15     KC          1,670      67%             None         CLE         1,497      33%             None         5              None
-  15     MIA         1,524      43%             None         HOU         1,524      57%             None         −2             None
-  15     NYJ         1,487      47%             None         JAX         1,458      53%             None         −1             None
-  15     WAS         1,384      20%             None         NO          1,580      80%             None         −10            None
-  15     BAL         1,600      69%             None         NYG         1,411      31%             None         6              None
-  15     CIN         1,526      61%             None         TEN         1,397      39%             None         3              None
-  15     NE          1,402      37%             None         ARI         1,444      63%             None         −4             None
-  15     IND         1,444      44%             None         DEN         1,438      56%             None         −2             None
-  15     BUF         1,663      56%             None         DET         1,568      44%             None         2              None
-  15     TB          1,562      53%             None         LAC         1,494      47%             None         1              None
-  15     PIT         1,571      48%             None         PHI         1,535      52%             None         −1             None
-  15     GB          1,557      47%             None         SEA         1,531      53%             None         −1             None
-  15     CHI         1,466      32%             None         MIN         1,547      68%             None         −5             None
-  15     ATL         1,426      33%             None         LV          1,496      67%             None         −5             None
-  16     CLE         1,497      39%             None         CIN         1,526      61%             None         −3             None
-  16     HOU         1,524      25%             None         KC          1,670      75%             None         −8             None
-  16     PIT         1,571      39%             None         BAL         1,600      61%             None         −3             None
-  16     NYG         1,411      41%             None         ATL         1,426      59%             None         −3             None
-  16     NE          1,402      14%             None         BUF         1,663      86%             None         −12            None
-  16     ARI         1,444      62%             None         CAR         1,309      38%             None         3              None
-  16     DET         1,568      57%             None         CHI         1,466      43%             None         2              None
-  16     TEN         1,397      36%             None         IND         1,444      64%             None         −4             None
-  16     LA          1,469      40%             None         NYJ         1,487      60%             None         −3             None
-  16     PHI         1,535      64%             None         WAS         1,384      36%             None         4              None
-  16     DEN         1,438      35%             None         LAC         1,494      65%             None         −4             None
-  16     MIN         1,547      45%             None         SEA         1,531      55%             None         −1             None
-  16     JAX         1,458      38%             None         LV          1,496      62%             None         −4             None
-  16     SF          1,637      59%             None         MIA         1,524      41%             None         2              None
-  16     TB          1,562      42%             None         DAL         1,565      58%             None         −2             None
-  16     NO          1,580      46%             None         GB          1,557      54%             None         −1             None
-  17     KC          1,670      57%             None         PIT         1,571      43%             None         2              None
-  17     BAL         1,600      54%             None         HOU         1,524      46%             None         1              None
-  17     SEA         1,531      52%             None         CHI         1,466      48%             None         1              None
-  17     NYJ         1,487      21%             None         BUF         1,663      79%             None         −9             None
-  17     DEN         1,438      31%             None         CIN         1,526      69%             None         −6             None
-  17     TEN         1,397      35%             None         JAX         1,458      65%             None         −4             None
-  17     ARI         1,444      39%             None         LA          1,469      61%             None         −3             None
-  17     GB          1,557      44%             None         MIN         1,547      56%             None         −2             None
-  17     LAC         1,494      56%             None         NE          1,402      44%             None         2              None
-  17     LV          1,496      32%             None         NO          1,580      68%             None         −5             None
-  17     IND         1,444      48%             None         NYG         1,411      52%             None         −1             None
-  17     CAR         1,309      15%             None         TB          1,562      85%             None         −12            None
-  17     ATL         1,426      49%             None         WAS         1,384      51%             None         −0             None
-  17     DAL         1,565      47%             None         PHI         1,535      53%             None         −1             None
-  17     MIA         1,524      47%             None         CLE         1,497      53%             None         −1             None
-  17     DET         1,568      34%             None         SF          1,637      66%             None         −5             None
-  18     SF          1,637      69%             None         ARI         1,444      31%             None         6              None
-  18     CAR         1,309      28%             None         ATL         1,426      72%             None         −7             None
-  18     CLE         1,497      29%             None         BAL         1,600      71%             None         −6             None
-  18     WAS         1,384      21%             None         DAL         1,565      79%             None         −9             None
-  18     KC          1,670      74%             None         DEN         1,438      26%             None         7              None
-  18     MIN         1,547      40%             None         DET         1,568      60%             None         −3             None
-  18     CHI         1,466      31%             None         GB          1,557      69%             None         −6             None
-  18     JAX         1,458      45%             None         IND         1,444      55%             None         −1             None
-  18     SEA         1,531      52%             None         LA          1,469      48%             None         0              None
-  18     LAC         1,494      43%             None         LV          1,496      57%             None         −2             None
-  18     BUF         1,663      77%             None         NE          1,402      23%             None         8              None
-  18     MIA         1,524      48%             None         NYJ         1,487      52%             None         −1             None
-  18     NYG         1,411      27%             None         PHI         1,535      73%             None         −7             None
-  18     CIN         1,526      37%             None         PIT         1,571      63%             None         −4             None
-  18     NO          1,580      45%             None         TB          1,562      55%             None         −1             None
-  18     HOU         1,524      61%             None         TEN         1,397      39%             None         3              None
-
-</div>
-        
+::: {.cell-output .cell-output-stdout}
+     week away_team away_elo away_win_prob away_score home_team home_elo home_win_prob home_score point_spread actual_spread
+    6706 1 BAL 1638 41% 20 KC 1649 59% 27 -2 -7
+    6707 1 GB 1562 48% 29 PHI 1528 52% 34 -1 -5
+    6708 1 PIT 1534 57% 18 ATL 1435 43% 10 2 8
+    6709 1 ARI 1410 18% 28 BUF 1628 82% 34 -11 -6
+    6710 1 TEN 1436 39% 17 CHI 1465 61% 24 -3 -7
+    6711 1 NE 1408 24% 16 CIN 1559 76% 10 -8 6
+    6712 1 HOU 1498 47% 29 IND 1467 53% 27 -1 2
+    6713 1 JAX 1489 35% 17 MIA 1543 65% 20 -4 -3
+    6714 1 CAR 1349 22% 10 NO 1521 78% 47 -9 -37
+    6715 1 MIN 1489 47% 28 NYG 1458 53% 6 -1 22
+    6716 1 LV 1501 51% 10 LAC 1444 49% 22 0 -12
+    6717 1 DEN 1470 38% 20 SEA 1503 62% 26 -3 -6
+    6718 1 DAL 1583 54% 33 CLE 1502 46% 17 1 16
+    6719 1 WAS 1385 25% 20 TB 1527 75% 37 -8 -17
+    6720 1 LA 1523 36% 20 DET 1574 64% 26 -4 -6
+    6721 1 NYJ 1452 19% 19 SF 1651 81% 32 -10 -13
+    6722 2 BUF 1635 55% 31 MIA 1552 45% 10 1 21
+    6723 2 LV 1475 24% 26 BAL 1621 76% 23 -8 3
+    6724 2 LAC 1471 62% 26 CAR 1333 38% 3 3 23
+    6725 2 NO 1537 33% 44 DAL 1609 67% 19 -5 25
+    6726 2 TB 1542 36% 20 DET 1588 64% 16 -4 4
+    6727 2 IND 1456 31% 10 GB 1545 69% 16 -6 -6
+    6728 2 CLE 1476 42% 18 JAX 1479 58% 13 -2 5
+    6729 2 SF 1661 62% 17 MIN 1522 38% 23 4 -6
+    6730 2 SEA 1518 54% 23 NE 1438 46% 20 1 3
+    6731 2 NYJ 1442 46% 24 TEN 1420 54% 17 -1 7
+    6732 2 NYG 1425 51% 18 WAS 1370 49% 21 0 -3
+    6733 2 LA 1509 58% 10 ARI 1403 42% 41 2 -31
+    6734 2 PIT 1553 57% 13 DEN 1456 43% 6 2 7
+    6735 2 CIN 1529 25% 25 KC 1666 75% 26 -7 -1
+    6736 2 CHI 1481 39% 13 HOU 1509 61% 19 -3 -6
+    6737 2 ATL 1416 26% 22 PHI 1545 74% 21 -7 1
+    6738 3 NE 1425 37% 3 NYJ 1464 63% 24 -4 -21
+    6739 3 NYG 1411 31% nan CLE 1497 69% nan -5 nan
+    6740 3 CHI 1466 46% nan IND 1444 54% nan -1 nan
+    6741 3 HOU 1524 40% nan MIN 1547 60% nan -3 nan
+    6742 3 PHI 1535 37% nan NO 1580 63% nan -4 nan
+    6743 3 LAC 1494 33% nan PIT 1571 67% nan -5 nan
+    6744 3 DEN 1438 27% nan TB 1562 73% nan -7 nan
+    6745 3 GB 1557 65% nan TEN 1397 35% nan 4 nan
+    6746 3 CAR 1309 20% nan LV 1496 80% nan -9 nan
+    6747 3 MIA 1524 42% nan SEA 1531 58% nan -2 nan
+    6748 3 DET 1568 61% nan ARI 1444 39% nan 3 nan
+    6749 3 BAL 1600 48% nan DAL 1565 52% nan -1 nan
+    6750 3 SF 1637 66% nan LA 1469 34% nan 5 nan
+    6751 3 KC 1670 75% nan ATL 1426 25% nan 8 nan
+    6752 3 JAX 1458 19% nan BUF 1663 81% nan -10 nan
+    6753 3 WAS 1384 25% nan CIN 1526 75% nan -8 nan
+    6754 4 DAL 1565 65% nan NYG 1411 35% nan 4 nan
+    6755 4 NO 1580 65% nan ATL 1426 35% nan 4 nan
+    6756 4 CIN 1526 72% nan CAR 1309 28% nan 7 nan
+    6757 4 LA 1469 43% nan CHI 1466 57% nan -2 nan
+    6758 4 MIN 1547 41% nan GB 1557 59% nan -2 nan
+    6759 4 JAX 1458 34% nan HOU 1524 66% nan -5 nan
+    6760 4 PIT 1571 61% nan IND 1444 39% nan 3 nan
+    6761 4 DEN 1438 36% nan NYJ 1487 64% nan -4 nan
+    6762 4 PHI 1535 39% nan TB 1562 61% nan -3 nan
+    6763 4 WAS 1384 35% nan ARI 1444 65% nan -4 nan
+    6764 4 NE 1402 16% nan SF 1637 84% nan -11 nan
+    6765 4 KC 1670 67% nan LAC 1494 33% nan 5 nan
+    6766 4 CLE 1497 43% nan LV 1496 57% nan -2 nan
+    6767 4 BUF 1663 52% nan BAL 1600 48% nan 1 nan
+    6768 4 TEN 1397 26% nan MIA 1524 74% nan -7 nan
+    6769 4 SEA 1531 38% nan DET 1568 62% nan -3 nan
+    6770 5 TB 1562 62% nan ATL 1426 38% nan 3 nan
+    6771 5 NYJ 1487 35% nan MIN 1547 65% nan -4 nan
+    6772 5 CAR 1309 23% nan CHI 1466 77% nan -8 nan
+    6773 5 BAL 1600 53% nan CIN 1526 47% nan 1 nan
+    6774 5 BUF 1663 63% nan HOU 1524 37% nan 4 nan
+    6775 5 IND 1444 41% nan JAX 1458 59% nan -3 nan
+    6776 5 MIA 1524 60% nan NE 1402 40% nan 3 nan
+    6777 5 CLE 1497 59% nan WAS 1384 41% nan 2 nan
+    6778 5 LV 1496 51% nan DEN 1438 49% nan 0 nan
+    6779 5 ARI 1444 20% nan SF 1637 80% nan -10 nan
+    6780 5 GB 1557 56% nan LA 1469 44% nan 2 nan
+    6781 5 NYG 1411 27% nan SEA 1531 73% nan -7 nan
+    6782 5 DAL 1565 42% nan PIT 1571 58% nan -2 nan
+    6783 5 NO 1580 31% nan KC 1670 69% nan -6 nan
+    6784 6 SF 1637 58% nan SEA 1531 42% nan 2 nan
+    6785 6 JAX 1458 42% nan CHI 1466 58% nan -2 nan
+    6786 6 WAS 1384 18% nan BAL 1600 82% nan -11 nan
+    6787 6 ARI 1444 28% nan GB 1557 72% nan -7 nan
+    6788 6 HOU 1524 60% nan NE 1402 40% nan 3 nan
+    6789 6 TB 1562 40% nan NO 1580 60% nan -3 nan
+    6790 6 CLE 1497 38% nan PHI 1535 62% nan -4 nan
+    6791 6 IND 1444 50% nan TEN 1397 50% nan -0 nan
+    6792 6 LAC 1494 51% nan DEN 1438 49% nan 0 nan
+    6793 6 PIT 1571 54% nan LV 1496 46% nan 1 nan
+    6794 6 ATL 1426 60% nan CAR 1309 40% nan 3 nan
+    6795 6 DET 1568 43% nan DAL 1565 57% nan -2 nan
+    6796 6 CIN 1526 59% nan NYG 1411 41% nan 3 nan
+    6797 6 BUF 1663 67% nan NYJ 1487 33% nan 5 nan
+    6798 7 DEN 1438 25% nan NO 1580 75% nan -8 nan
+    6799 7 NE 1402 35% nan JAX 1458 65% nan -4 nan
+    6800 7 SEA 1531 58% nan ATL 1426 42% nan 2 nan
+    6801 7 TEN 1397 14% nan BUF 1663 86% nan -13 nan
+    6802 7 CIN 1526 47% nan CLE 1497 53% nan -1 nan
+    6803 7 HOU 1524 38% nan GB 1557 62% nan -3 nan
+    6804 7 MIA 1524 54% nan IND 1444 46% nan 1 nan
+    6805 7 DET 1568 46% nan MIN 1547 54% nan -1 nan
+    6806 7 PHI 1535 61% nan NYG 1411 39% nan 3 nan
+    6807 7 LV 1496 47% nan LA 1469 53% nan -1 nan
+    6808 7 CAR 1309 33% nan WAS 1384 67% nan -5 nan
+    6809 7 KC 1670 48% nan SF 1637 52% nan -1 nan
+    6810 7 NYJ 1487 32% nan PIT 1571 68% nan -5 nan
+    6811 7 BAL 1600 48% nan TB 1562 52% nan -0 nan
+    6812 7 LAC 1494 50% nan ARI 1444 50% nan 0 nan
+    6813 8 MIN 1547 54% nan LA 1469 46% nan 1 nan
+    6814 8 BAL 1600 58% nan CLE 1497 42% nan 2 nan
+    6815 8 TEN 1397 22% nan DET 1568 78% nan -9 nan
+    6816 8 IND 1444 32% nan HOU 1524 68% nan -5 nan
+    6817 8 GB 1557 57% nan JAX 1458 43% nan 2 nan
+    6818 8 ARI 1444 32% nan MIA 1524 68% nan -5 nan
+    6819 8 NYJ 1487 55% nan NE 1402 45% nan 1 nan
+    6820 8 ATL 1426 26% nan TB 1562 74% nan -7 nan
+    6821 8 CHI 1466 55% nan WAS 1384 45% nan 1 nan
+    6822 8 NO 1580 55% nan LAC 1494 45% nan 1 nan
+    6823 8 BUF 1663 62% nan SEA 1531 38% nan 3 nan
+    6824 8 PHI 1535 44% nan CIN 1526 56% nan -2 nan
+    6825 8 CAR 1309 26% nan DEN 1438 74% nan -7 nan
+    6826 8 KC 1670 67% nan LV 1496 33% nan 5 nan
+    6827 8 DAL 1565 33% nan SF 1637 67% nan -5 nan
+    6828 8 NYG 1411 23% nan PIT 1571 77% nan -8 nan
+    6829 9 HOU 1524 48% nan NYJ 1487 52% nan -1 nan
+    6830 9 DAL 1565 62% nan ATL 1426 38% nan 4 nan
+    6831 9 DEN 1438 23% nan BAL 1600 77% nan -8 nan
+    6832 9 MIA 1524 25% nan BUF 1663 75% nan -8 nan
+    6833 9 NO 1580 78% nan CAR 1309 22% nan 9 nan
+    6834 9 LV 1496 39% nan CIN 1526 61% nan -3 nan
+    6835 9 LAC 1494 43% nan CLE 1497 57% nan -2 nan
+    6836 9 IND 1444 29% nan MIN 1547 71% nan -6 nan
+    6837 9 WAS 1384 39% nan NYG 1411 61% nan -3 nan
+    6838 9 NE 1402 44% nan TEN 1397 56% nan -2 nan
+    6839 9 CHI 1466 46% nan ARI 1444 54% nan -1 nan
+    6840 9 DET 1568 44% nan GB 1557 56% nan -2 nan
+    6841 9 LA 1469 34% nan SEA 1531 66% nan -4 nan
+    6842 9 JAX 1458 33% nan PHI 1535 67% nan -5 nan
+    6843 9 TB 1562 29% nan KC 1670 71% nan -6 nan
+    6844 10 CIN 1526 33% nan BAL 1600 67% nan -5 nan
+    6845 10 NYG 1411 57% nan CAR 1309 43% nan 2 nan
+    6846 10 NE 1402 34% nan CHI 1466 66% nan -5 nan
+    6847 10 BUF 1663 73% nan IND 1444 27% nan 7 nan
+    6848 10 MIN 1547 56% nan JAX 1458 44% nan 2 nan
+    6849 10 DEN 1438 16% nan KC 1670 84% nan -11 nan
+    6850 10 ATL 1426 24% nan NO 1580 76% nan -8 nan
+    6851 10 SF 1637 54% nan TB 1562 46% nan 1 nan
+    6852 10 PIT 1571 69% nan WAS 1384 31% nan 5 nan
+    6853 10 TEN 1397 30% nan LAC 1494 70% nan -6 nan
+    6854 10 NYJ 1487 49% nan ARI 1444 51% nan -0 nan
+    6855 10 PHI 1535 39% nan DAL 1565 61% nan -3 nan
+    6856 10 DET 1568 49% nan HOU 1524 51% nan -0 nan
+    6857 10 MIA 1524 51% nan LA 1469 49% nan 0 nan
+    6858 11 WAS 1384 24% nan PHI 1535 76% nan -8 nan
+    6859 11 GB 1557 56% nan CHI 1466 44% nan 2 nan
+    6860 11 JAX 1458 29% nan DET 1568 71% nan -6 nan
+    6861 11 LV 1496 39% nan MIA 1524 61% nan -3 nan
+    6862 11 LA 1469 52% nan NE 1402 48% nan 1 nan
+    6863 11 CLE 1497 32% nan NO 1580 68% nan -5 nan
+    6864 11 BAL 1600 47% nan PIT 1571 53% nan -1 nan
+    6865 11 MIN 1547 64% nan TEN 1397 36% nan 4 nan
+    6866 11 ATL 1426 41% nan DEN 1438 59% nan -2 nan
+    6867 11 SEA 1531 29% nan SF 1637 71% nan -6 nan
+    6868 11 KC 1670 44% nan BUF 1663 56% nan -2 nan
+    6869 11 CIN 1526 47% nan LAC 1494 53% nan -1 nan
+    6870 11 IND 1444 37% nan NYJ 1487 63% nan -4 nan
+    6871 11 HOU 1524 37% nan DAL 1565 63% nan -4 nan
+    6872 12 PIT 1571 53% nan CLE 1497 47% nan 1 nan
+    6873 12 KC 1670 86% nan CAR 1309 14% nan 12 nan
+    6874 12 MIN 1547 54% nan CHI 1466 46% nan 1 nan
+    6875 12 TEN 1397 27% nan HOU 1524 73% nan -7 nan
+    6876 12 DET 1568 61% nan IND 1444 39% nan 3 nan
+    6877 12 NE 1402 27% nan MIA 1524 73% nan -7 nan
+    6878 12 TB 1562 64% nan NYG 1411 36% nan 4 nan
+    6879 12 DAL 1565 68% nan WAS 1384 32% nan 5 nan
+    6880 12 DEN 1438 35% nan LV 1496 65% nan -4 nan
+    6881 12 SF 1637 54% nan GB 1557 46% nan 1 nan
+    6882 12 ARI 1444 31% nan SEA 1531 69% nan -5 nan
+    6883 12 PHI 1535 52% nan LA 1469 48% nan 1 nan
+    6884 12 BAL 1600 58% nan LAC 1494 42% nan 2 nan
+    6885 13 CHI 1466 29% nan DET 1568 71% nan -6 nan
+    6886 13 NYG 1411 24% nan DAL 1565 76% nan -8 nan
+    6887 13 MIA 1524 38% nan GB 1557 62% nan -3 nan
+    6888 13 LV 1496 22% nan KC 1670 78% nan -9 nan
+    6889 13 LAC 1494 53% nan ATL 1426 47% nan 1 nan
+    6890 13 PIT 1571 49% nan CIN 1526 51% nan -0 nan
+    6891 13 HOU 1524 52% nan JAX 1458 48% nan 1 nan
+    6892 13 ARI 1444 29% nan MIN 1547 71% nan -6 nan
+    6893 13 IND 1444 49% nan NE 1402 51% nan -0 nan
+    6894 13 SEA 1531 49% nan NYJ 1487 51% nan -0 nan
+    6895 13 TEN 1397 45% nan WAS 1384 55% nan -1 nan
+    6896 13 TB 1562 76% nan CAR 1309 24% nan 8 nan
+    6897 13 LA 1469 28% nan NO 1580 72% nan -6 nan
+    6898 13 PHI 1535 34% nan BAL 1600 66% nan -5 nan
+    6899 13 SF 1637 39% nan BUF 1663 61% nan -3 nan
+    6900 13 CLE 1497 51% nan DEN 1438 49% nan 0 nan
+    6901 14 GB 1557 41% nan DET 1568 59% nan -2 nan
+    6902 14 NYJ 1487 38% nan MIA 1524 62% nan -3 nan
+    6903 14 ATL 1426 27% nan MIN 1547 73% nan -7 nan
+    6904 14 NO 1580 67% nan NYG 1411 33% nan 5 nan
+    6905 14 CAR 1309 17% nan PHI 1535 83% nan -11 nan
+    6906 14 CLE 1497 33% nan PIT 1571 67% nan -5 nan
+    6907 14 LV 1496 34% nan TB 1562 66% nan -5 nan
+    6908 14 JAX 1458 52% nan TEN 1397 48% nan 0 nan
+    6909 14 SEA 1531 55% nan ARI 1444 45% nan 1 nan
+    6910 14 BUF 1663 70% nan LA 1469 30% nan 6 nan
+    6911 14 CHI 1466 22% nan SF 1637 78% nan -9 nan
+    6912 14 LAC 1494 21% nan KC 1670 79% nan -9 nan
+    6913 14 CIN 1526 37% nan DAL 1565 63% nan -4 nan
+    6914 15 LA 1469 22% nan SF 1637 78% nan -9 nan
+    6915 15 DAL 1565 77% nan CAR 1309 23% nan 8 nan
+    6916 15 KC 1670 67% nan CLE 1497 33% nan 5 nan
+    6917 15 MIA 1524 43% nan HOU 1524 57% nan -2 nan
+    6918 15 NYJ 1487 47% nan JAX 1458 53% nan -1 nan
+    6919 15 WAS 1384 20% nan NO 1580 80% nan -10 nan
+    6920 15 BAL 1600 69% nan NYG 1411 31% nan 6 nan
+    6921 15 CIN 1526 61% nan TEN 1397 39% nan 3 nan
+    6922 15 NE 1402 37% nan ARI 1444 63% nan -4 nan
+    6923 15 IND 1444 44% nan DEN 1438 56% nan -2 nan
+    6924 15 BUF 1663 56% nan DET 1568 44% nan 2 nan
+    6925 15 TB 1562 53% nan LAC 1494 47% nan 1 nan
+    6926 15 PIT 1571 48% nan PHI 1535 52% nan -1 nan
+    6927 15 GB 1557 47% nan SEA 1531 53% nan -1 nan
+    6928 15 CHI 1466 32% nan MIN 1547 68% nan -5 nan
+    6929 15 ATL 1426 33% nan LV 1496 67% nan -5 nan
+    6930 16 CLE 1497 39% nan CIN 1526 61% nan -3 nan
+    6931 16 HOU 1524 25% nan KC 1670 75% nan -8 nan
+    6932 16 PIT 1571 39% nan BAL 1600 61% nan -3 nan
+    6933 16 NYG 1411 41% nan ATL 1426 59% nan -3 nan
+    6934 16 NE 1402 14% nan BUF 1663 86% nan -12 nan
+    6935 16 ARI 1444 62% nan CAR 1309 38% nan 3 nan
+    6936 16 DET 1568 57% nan CHI 1466 43% nan 2 nan
+    6937 16 TEN 1397 36% nan IND 1444 64% nan -4 nan
+    6938 16 LA 1469 40% nan NYJ 1487 60% nan -3 nan
+    6939 16 PHI 1535 64% nan WAS 1384 36% nan 4 nan
+    6940 16 DEN 1438 35% nan LAC 1494 65% nan -4 nan
+    6941 16 MIN 1547 45% nan SEA 1531 55% nan -1 nan
+    6942 16 JAX 1458 38% nan LV 1496 62% nan -4 nan
+    6943 16 SF 1637 59% nan MIA 1524 41% nan 2 nan
+    6944 16 TB 1562 42% nan DAL 1565 58% nan -2 nan
+    6945 16 NO 1580 46% nan GB 1557 54% nan -1 nan
+    6946 17 KC 1670 57% nan PIT 1571 43% nan 2 nan
+    6947 17 BAL 1600 54% nan HOU 1524 46% nan 1 nan
+    6948 17 SEA 1531 52% nan CHI 1466 48% nan 1 nan
+    6949 17 NYJ 1487 21% nan BUF 1663 79% nan -9 nan
+    6950 17 DEN 1438 31% nan CIN 1526 69% nan -6 nan
+    6951 17 TEN 1397 35% nan JAX 1458 65% nan -4 nan
+    6952 17 ARI 1444 39% nan LA 1469 61% nan -3 nan
+    6953 17 GB 1557 44% nan MIN 1547 56% nan -2 nan
+    6954 17 LAC 1494 56% nan NE 1402 44% nan 2 nan
+    6955 17 LV 1496 32% nan NO 1580 68% nan -5 nan
+    6956 17 IND 1444 48% nan NYG 1411 52% nan -1 nan
+    6957 17 CAR 1309 15% nan TB 1562 85% nan -12 nan
+    6958 17 ATL 1426 49% nan WAS 1384 51% nan -0 nan
+    6959 17 DAL 1565 47% nan PHI 1535 53% nan -1 nan
+    6960 17 MIA 1524 47% nan CLE 1497 53% nan -1 nan
+    6961 17 DET 1568 34% nan SF 1637 66% nan -5 nan
+    6962 18 SF 1637 69% nan ARI 1444 31% nan 6 nan
+    6963 18 CAR 1309 28% nan ATL 1426 72% nan -7 nan
+    6964 18 CLE 1497 29% nan BAL 1600 71% nan -6 nan
+    6965 18 WAS 1384 21% nan DAL 1565 79% nan -9 nan
+    6966 18 KC 1670 74% nan DEN 1438 26% nan 7 nan
+    6967 18 MIN 1547 40% nan DET 1568 60% nan -3 nan
+    6968 18 CHI 1466 31% nan GB 1557 69% nan -6 nan
+    6969 18 JAX 1458 45% nan IND 1444 55% nan -1 nan
+    6970 18 SEA 1531 52% nan LA 1469 48% nan 0 nan
+    6971 18 LAC 1494 43% nan LV 1496 57% nan -2 nan
+    6972 18 BUF 1663 77% nan NE 1402 23% nan 8 nan
+    6973 18 MIA 1524 48% nan NYJ 1487 52% nan -1 nan
+    6974 18 NYG 1411 27% nan PHI 1535 73% nan -7 nan
+    6975 18 CIN 1526 37% nan PIT 1571 63% nan -4 nan
+    6976 18 NO 1580 45% nan TB 1562 55% nan -1 nan
+    6977 18 HOU 1524 61% nan TEN 1397 39% nan 3 nan
 :::
 ::::
