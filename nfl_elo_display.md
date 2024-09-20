@@ -1,11 +1,4 @@
----
-execute:
-  echo: false
-title: NFL Elo
-toc-title: Table of contents
----
-
-## NFL Elo
+# NFL Elo
 
   ---------------------------------------------------------------------------------------------------------------------------------------------
   week   away_team   away_elo   away_win_prob   away_score   home_team   home_elo   home_win_prob   home_score   point_spread   actual_spread
