@@ -45,7 +45,7 @@ games = (pd.read_csv("nfl_latest_elo.csv")
 
 print(games.to_markdown(
     index=False,
-    tablefmt="github",
+    tablefmt="pipe",
     floatfmt=[".0f", "", ".0f", ".0%", ".0f", "", ".0f", ".0%", ".0f", ".0f", ".0f"],
     missingval=""))
 ```
