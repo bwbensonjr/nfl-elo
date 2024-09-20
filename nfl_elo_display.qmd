@@ -1,0 +1,40 @@
+---
+title: NFL Elo
+format: markdown
+execute:
+  echo: false
+---
+
+## NFL Elo
+
+```{python}
+import polars as pl
+from great_tables import GT
+
+games = (pl.read_csv("nfl_latest_elo.csv")
+         .filter(pl.col("season") == 2024)
+         .with_columns(
+             actual_spread = pl.col("away_score") - pl.col("home_score")
+         ).select(
+             ["week",
+              "away_team",
+              "away_elo",
+              "away_win_prob",
+              "away_score",
+              "home_team",
+              "home_elo",
+              "home_win_prob",
+              "home_score",
+              "point_spread",
+              "actual_spread"]
+         ))
+
+games_tbl = (GT(games)
+             .fmt_number(["away_elo", "away_score",
+                          "home_elo", "home_score",
+                          "point_spread", "actual_spread"],
+                         decimals=0)
+             .fmt_percent(["away_win_prob", "home_win_prob"],
+                          decimals=0))
+games_tbl
+```

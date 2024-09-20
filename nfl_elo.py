@@ -51,6 +51,13 @@ def process_game_elo(elo, games_input, verbose=False):
                 games.at[ix, "point_spread"] = point_spread
             else:
                 # Update model with games results
+                home_team = game["home_team"]
+                away_team = game["away_team"]
+                away_elo = elo.team_rating(away_team)
+                home_elo = elo.team_rating(home_team)
+                home_win_prob = elo.home_win_prob(home_team, away_team)
+                away_win_prob = 1 - home_win_prob
+                point_spread = elo.point_spread(home_team, away_team)
                 home_elo, away_elo, home_elo_post, away_elo_post = update_elo(elo, game)
                 if verbose:
                     print(f"{game.season}, week {game.week}: "
@@ -62,6 +69,9 @@ def process_game_elo(elo, games_input, verbose=False):
                 games.at[ix, "away_elo"] = away_elo
                 games.at[ix, "home_elo_post"] = home_elo_post
                 games.at[ix, "away_elo_post"] = away_elo_post
+                games.at[ix, "home_win_prob"] = home_win_prob
+                games.at[ix, "away_win_prob"] = away_win_prob
+                games.at[ix, "point_spread"] = point_spread
         print(f"End of season {season}")
         if season != 2024:
             print("Regressing towards the mean between seasons...")

@@ -47,7 +47,7 @@ class Elo:
     
     def point_spread(self, home_team, away_team):
         elo_diff = self.elo_difference(home_team, away_team)
-        spread = -(elo_diff / self.point_spread_div)
+        spread = (elo_diff / self.point_spread_div)
         return spread
     
     def update_ratings(self, home_team, home_score, away_team, away_score):
