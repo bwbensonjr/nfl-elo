@@ -8,12 +8,17 @@ execute:
 ## NFL Elo
 
 ```{python}
+#| output: asis
+
 import pandas as pd
+import numpy as np
 
 games = (pd.read_csv("nfl_latest_elo.csv")
          .query("season == 2024")
          .assign(actual_spread = lambda x: (x["away_score"] -
                                             x["home_score"]))
+         .fillna(np.nan)
+         .replace([np.nan], None)
          .filter(items=["week",
                         "away_team",
                         "away_elo",
@@ -27,14 +32,20 @@ games = (pd.read_csv("nfl_latest_elo.csv")
                         "actual_spread"]))
 
 
-print(games.style.format({
-    "away_elo": "{:.0f}",
-    "away_win_prob": "{:.0%}",
-    "away_score": "{:.0f}",
-    "home_elo": "{:.0f}",
-    "home_win_prob": "{:.0%}",
-    "home_score": "{:.0f}",
-    "point_spread": "{:.0f}",
-    "actual_spread": "{:.0f}",
-}).to_string())
+# games.style.format({
+#     "away_elo": "{:.0f}",
+#     "away_win_prob": "{:.0%}",
+#     "away_score": "{:.0f}",
+#     "home_elo": "{:.0f}",
+#     "home_win_prob": "{:.0%}",
+#     "home_score": "{:.0f}",
+#     "point_spread": "{:.0f}",
+#     "actual_spread": "{:.0f}",
+# })
+
+print(games.to_markdown(
+    index=False,
+    tablefmt="github",
+    floatfmt=[".0f", "", ".0f", ".0%", ".0f", "", ".0f", ".0%", ".0f", ".0f", ".0f"],
+    missingval=""))
 ```
