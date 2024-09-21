@@ -19,7 +19,7 @@ data file called [`nfl_latest_elo.csv`](nfl_latest_elo.csv).
 python nfl_elo.py
 ```
 
-It also creates the [`nfl_elo_table.md`][nfl_elo_table.md) for looking
+It also creates the [`nfl_elo_table.md`](nfl_elo_table.md) for looking
 at the current season calculations.
 
 
