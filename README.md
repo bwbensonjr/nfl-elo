@@ -13,8 +13,13 @@ library and uses NFL game data from
 Running the program downloads the historical and upcoming data from
 `nflverse`, computes the before and after Elo for the historic data
 and the projected Elo for upcoming games, and writes out a summary
-data file called [`nfl_latest_elo.csv`](nfl_latest_elo.csv)
+data file called [`nfl_latest_elo.csv`](nfl_latest_elo.csv).
 
 ```
 python nfl_elo.py
 ```
+
+It also creates the [`nfl_elo_table.md`][nfl_elo_table.md) for looking
+at the current season calculations.
+
+
