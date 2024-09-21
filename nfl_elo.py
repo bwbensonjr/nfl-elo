@@ -1,5 +1,6 @@
 from elo import Elo
 import pandas as pd
+import numpy as np
 
 GAME_CSV_URL = (
     "https://raw.githubusercontent.com/nflverse/"
@@ -20,6 +21,8 @@ def main():
     games_with_elo = process_game_elo(nfl_elo, nfl_games)
     print(f"Writing games with updated Elo to {OUT_FILE}...")
     games_with_elo.to_csv("nfl_latest_elo.csv", index=False)
+    print("Writing Markdown table file...")
+    write_markdown_output(games_with_elo)
     print("Done.")
 
 def process_game_elo(elo, games_input, verbose=False):
@@ -97,6 +100,34 @@ def update_elo(elo, game):
         post_home,
         post_away,
     )
+
+def write_markdown_output(games):
+    games_tbl = (games
+                 .query("season == 2024")
+                 .assign(actual_spread = lambda x: (x["away_score"] -
+                                                    x["home_score"]))
+                 .fillna(np.nan)
+                 .replace([np.nan], None)
+                 .filter(items=["week",
+                                "away_team",
+                                "away_elo",
+                                "away_win_prob",
+                                "away_score",
+                                "home_team",
+                                "home_elo",
+                                "home_win_prob",
+                                "home_score",
+                                "point_spread",
+                                "actual_spread"]))
+    with open("nfl_elo_table.md", "w") as out_file:
+        out_file.write("## NFL Elo\n\n")
+        out_file.write(games_tbl.to_markdown(
+            index=False,
+            tablefmt="pipe",
+            floatfmt=[".0f", "", ".0f", ".0%", ".0f", "", ".0f", ".0%", ".0f", ".0f", ".0f"],
+            missingval="",
+        ))
+
 
 if __name__ == "__main__":
     main()
