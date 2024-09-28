@@ -25,7 +25,8 @@ at the current season calculations.
 ## Weekly Updates
 
 This repository is configured with a [GitHub
-Action](.github/workflows/update_elo.yml) to get the latest data, run
-the Elo calculations, and save the output Markdown and CSV files.
+Action](.github/workflows/update_elo.yml) on Tuesdays after the week's
+games to get the latest data, run the Elo calculations, and save the
+output Markdown and CSV files.
 
 
