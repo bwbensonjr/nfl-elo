@@ -22,4 +22,10 @@ python nfl_elo.py
 It also creates the [`nfl_elo_table.md`](nfl_elo_table.md) for looking
 at the current season calculations.
 
+## Weekly Updates
+
+This repository is configured with a [GitHub
+Action](.github/workflows/update_elo.yml) to get the latest data, run
+the Elo calculations, and save the output Markdown and CSV files.
+
 
