@@ -2,7 +2,7 @@ name: Weekly NFL Elo update
 
 on:
   schedule:
-    - cron: '0 0 * * 3'  # Runs at 00:00 UTC every Wednesday
+    - cron: '0 12 * * 2'  # Runs at 12:00 UTC every Tuesday
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
