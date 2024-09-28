@@ -29,7 +29,9 @@ def main():
 def process_game_elo(elo, games_input, verbose=False):
     # Copy for output
     games = games_input.copy()
-    for season in range(1999, 2025):
+    seasons = sorted(games["season"].unique())
+    current_season = seasons[-1]
+    for season in seasons:
         print(f"{season} Season...")
         season_games = games[games["season"] == season]
         for ix, game in season_games.iterrows():
@@ -77,7 +79,7 @@ def process_game_elo(elo, games_input, verbose=False):
                 games.at[ix, "away_win_prob"] = away_win_prob
                 games.at[ix, "point_spread"] = point_spread
         print(f"End of season {season}")
-        if season != 2024:
+        if season != current_season:
             print("Regressing towards the mean between seasons...")
             elo.regress_towards_mean()
     return games
@@ -103,8 +105,10 @@ def update_elo(elo, game):
     )
 
 def write_markdown_output(games):
+    seasons = sorted(games["season"].unique())
+    current_season = seasons[-1]
     games_tbl = (games
-                 .query("season == 2024")
+                 .query(f"season == {current_season}")
                  .assign(actual_spread = lambda x: (x["away_score"] -
                                                     x["home_score"]))
                  .fillna(np.nan)
@@ -122,7 +126,7 @@ def write_markdown_output(games):
                                 "actual_spread"]))
     time_update_str = datetime.datetime.now().ctime()
     with open("nfl_elo_table.md", "w") as out_file:
-        out_file.write("## NFL Elo\n\n")
+        out_file.write(f"## NFL Elo - {current_season} Season\n\n")
         out_file.write(f"*Updated {time_update_str}*\n\n")
         out_file.write(games_tbl.to_markdown(
             index=False,
