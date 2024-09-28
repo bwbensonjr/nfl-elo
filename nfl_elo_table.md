@@ -1,6 +1,6 @@
 ## NFL Elo
 
-*Updated Sat Sep 28 13:18:59 2024
+*Updated Sat Sep 28 13:24:56 2024*
 
 |   week | away_team   |   away_elo |   away_win_prob |   away_score | home_team   |   home_elo |   home_win_prob |   home_score |   point_spread |   actual_spread |
 |-------:|:------------|-----------:|----------------:|-------------:|:------------|-----------:|----------------:|-------------:|---------------:|----------------:|
