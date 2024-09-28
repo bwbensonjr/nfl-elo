@@ -123,7 +123,7 @@ def write_markdown_output(games):
     time_update_str = datetime.datetime.now().ctime()
     with open("nfl_elo_table.md", "w") as out_file:
         out_file.write("## NFL Elo\n\n")
-        out_file.write(f"*Updated {time_update_str}\n\n")
+        out_file.write(f"*Updated {time_update_str}*\n\n")
         out_file.write(games_tbl.to_markdown(
             index=False,
             tablefmt="pipe",
