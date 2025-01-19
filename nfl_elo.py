@@ -8,6 +8,8 @@ GAME_CSV_URL = (
     "nfldata/master/data/games.csv"
 )
 OUT_FILE = "nfl_latest_elo.csv"
+K = 25
+HOME_FIELD = 40
 
 def main():
     print(f"Reading games from {GAME_CSV_URL}...")
@@ -18,14 +20,24 @@ def main():
         list(nfl_games["away_team"].unique())
     )
     print(f"Teams: {nfl_teams}")
-    nfl_elo = Elo(teams=nfl_teams)
+    nfl_elo = Elo(teams=nfl_teams, k=K, home_field=HOME_FIELD)
     games_with_elo = process_game_elo(nfl_elo, nfl_games)
     print(f"Writing games with updated Elo to {OUT_FILE}...")
     games_with_elo.to_csv("nfl_latest_elo.csv", index=False)
     print("Writing Markdown table file...")
     write_markdown_output(games_with_elo)
+    abs_error = compute_error(games_with_elo, 2024)
+    print(f"Absolute error for 2024 with {K=}, {HOME_FIELD=}: {abs_error:.2f}")
     print("Done.")
 
+def compute_error(df, season=None):
+    df["actual_spread"] = df["away_score"] - df["home_score"]
+    df["abs_error"] = (df["actual_spread"] - df["point_spread"]).abs()
+    if season:
+        df = df[df["season"] == season]
+    abs_error = df["abs_error"].sum()
+    return abs_error
+    
 def process_game_elo(elo, games_input, verbose=False):
     # Copy for output
     games = games_input.copy()
