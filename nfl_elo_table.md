@@ -1,6 +1,6 @@
 ## NFL Elo - 2024 Season
 
-*Updated Tue Apr  1 12:14:41 2025*
+*Updated Tue Apr  8 12:14:38 2025*
 
 |   week | away_team   |   away_elo |   away_win_prob |   away_score | home_team   |   home_elo |   home_win_prob |   home_score |   point_spread |   actual_spread |
 |-------:|:------------|-----------:|----------------:|-------------:|:------------|-----------:|----------------:|-------------:|---------------:|----------------:|
