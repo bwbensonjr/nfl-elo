@@ -5,16 +5,19 @@ import numpy as np
 
 GAME_CSV_URL = (
     "https://raw.githubusercontent.com/nflverse/"
-    "nfldata/master/data/games.csv"
-)
+    "nfldata/refs/heads/master/data/games.csv"
+)    
+
 OUT_FILE = "nfl_latest_elo.csv"
-K = 25
+K = 22
 HOME_FIELD = 40
+TEST_SEASON = 2024
 
 def main():
     print(f"Reading games from {GAME_CSV_URL}...")
     nfl_games = pd.read_csv(GAME_CSV_URL)
-    print(f"Retrieved {len(nfl_games)} games.")
+    current_season = int(nfl_games["season"].max())
+    print(f"Retrieved {len(nfl_games)} games. Current season: {current_season}")
     nfl_teams = set(
         list(nfl_games["home_team"].unique()) +
         list(nfl_games["away_team"].unique())
@@ -26,8 +29,8 @@ def main():
     games_with_elo.to_csv("nfl_latest_elo.csv", index=False)
     print("Writing Markdown table file...")
     write_markdown_output(games_with_elo)
-    abs_error = compute_error(games_with_elo, 2024)
-    print(f"Absolute error for 2024 with {K=}, {HOME_FIELD=}: {abs_error:.2f}")
+    abs_error = compute_error(games_with_elo, TEST_SEASON)
+    print(f"Absolute error for {TEST_SEASON} with {K=}, {HOME_FIELD=}: {abs_error:.2f}")
     print("Done.")
 
 def compute_error(df, season=None):
@@ -147,6 +150,14 @@ def write_markdown_output(games):
             missingval="",
         ))
 
-
+def test_k_values(nfl_games, nfl_teams, k_values=[25], season=None):
+    k_errors = {}
+    for k in k_values:
+        nfl_elo = Elo(teams=nfl_teams, k=k, home_field=HOME_FIELD)
+        games_with_elo = process_game_elo(nfl_elo, nfl_games)
+        abs_error = compute_error(games_with_elo, season)
+        k_errors[k] = abs_error
+    return k_errors
+        
 if __name__ == "__main__":
     main()
