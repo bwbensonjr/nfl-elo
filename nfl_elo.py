@@ -125,7 +125,10 @@ def write_markdown_output(games):
     games_tbl = (games
                  .query(f"season == {current_season}")
                  .assign(actual_spread = lambda x: (x["away_score"] -
-                                                    x["home_score"]))
+                                                    x["home_score"]),
+                         spread_diff = lambda x: (x["away_score"] -
+                                                  x["home_score"] -
+                                                  x["point_spread"]))
                  .fillna(np.nan)
                  .replace([np.nan], None)
                  .filter(items=["week",
@@ -138,7 +141,8 @@ def write_markdown_output(games):
                                 "home_win_prob",
                                 "home_score",
                                 "point_spread",
-                                "actual_spread"]))
+                                "actual_spread",
+                                "spread_diff"]))
     time_update_str = datetime.datetime.now().ctime()
     with open("nfl_elo_table.md", "w") as out_file:
         out_file.write(f"## NFL Elo - {current_season} Season\n\n")
@@ -146,7 +150,7 @@ def write_markdown_output(games):
         out_file.write(games_tbl.to_markdown(
             index=False,
             tablefmt="pipe",
-            floatfmt=[".0f", "", ".0f", ".0%", ".0f", "", ".0f", ".0%", ".0f", ".0f", ".0f"],
+            floatfmt=[".0f", "", ".0f", ".0%", ".0f", "", ".0f", ".0%", ".0f", ".0f", ".0f", ".0f"],
             missingval="",
         ))
 

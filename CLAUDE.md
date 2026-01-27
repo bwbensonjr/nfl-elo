@@ -9,11 +9,8 @@ NFL Elo rating calculator that processes historical game data from nflverse, com
 ## Commands
 
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
 # Run the Elo calculations (fetches data, processes games, outputs CSV and Markdown)
-python nfl_elo.py
+uv run nfl_elo.py
 ```
 
 ## Architecture
